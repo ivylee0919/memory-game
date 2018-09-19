@@ -1,0 +1,166 @@
+html {
+    box-sizing: border-box;
+}
+
+*,
+*::before,
+*::after {
+    box-sizing: inherit;
+}
+
+@media screen and (max-width: 600px) {
+    ul.deck {
+        max-width: 90%;
+        /* 适当减小 deck 的高度 */
+        min-height: 400px;
+    }
+    ul.deck .card {
+        /* 设置卡片宽高一致，使其保持为正方形 :) */
+        width: 70px;
+        height: 70px;
+        margin: 1px;
+    }
+    /* 适当减小图标大小 */
+    ul.deck .card.show,
+    .match,
+    .wrong {
+        font-size: 24px;
+    }
+}
+
+@media screen and (max-width: 400px) {
+    ul.deck {
+        max-width: 88%;
+        /* 适当减小 deck 的高度 */
+        min-height: 320px;
+        padding: 20px;
+    }
+    ul.deck .card {
+        /* 设置卡片宽高一致，使其保持为正方形 :) */
+        width: 60px;
+        height: 60px;
+        margin: 1px;
+    }
+    /* 适当减小图标大小 */
+    ul.deck .card.show,
+    .match,
+    .wrong {
+        font-size: 20px;
+    }
+}
+
+html,
+body {
+    width: 100%;
+    height: 100%;
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    background: #ffffff url('../img/geometry2.png');
+    /* Background pattern from Subtle Patterns */
+    font-family: 'Coda', cursive;
+}
+
+.container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+}
+
+h1 {
+    font-family: 'Open Sans', sans-serif;
+    font-weight: 300;
+}
+
+
+/*
+ * Styles for the deck of cards
+ */
+
+.deck {
+    width: 660px;
+    min-height: 680px;
+    background: linear-gradient(160deg, #02ccba 0%, #aa7ecd 100%);
+    padding: 32px;
+    border-radius: 10px;
+    box-shadow: 12px 15px 20px 0 rgba(46, 61, 73, 0.5);
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    align-items: center;
+    margin: 0 0 3em;
+}
+
+.deck .card {
+    height: 125px;
+    width: 125px;
+    background: #2e3d49;
+    font-size: 0;
+    color: #ffffff;
+    border-radius: 8px;
+    cursor: pointer;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    box-shadow: 5px 2px 20px 0 rgba(46, 61, 73, 0.5);
+}
+
+.deck .card.open {
+    transform: rotateY(0);
+    background: #02b3e4;
+    cursor: default;
+}
+
+.deck .card.show {
+    font-size: 33px;
+}
+
+.deck .card.match {
+    cursor: default;
+    background: #02ccba;
+    font-size: 33px;
+}
+
+.deck .card.wrong {
+    cursor: default;
+    background: #FF3361;
+    font-size: 33px;
+}
+
+
+/*
+ * Styles for the Score Panel
+ */
+
+.score-panel {
+    text-align: left;
+    width: 50%;
+    margin-bottom: 10px;
+    align-items: center;
+}
+
+.score-panel .stars {
+    margin: 0;
+    padding: 0;
+    display: flex;
+    margin: 0 5px 0 0;
+}
+
+.score-panel .stars li {
+    list-style: none;
+    display: inline-block;
+}
+
+.score-panel .stars li.noshow {
+    visibility: hidden;
+}
+
+.score-panel .restart {
+    float: right;
+    cursor: pointer;
+    text-align: left;
+    margin-bottom: 10px;
+}
